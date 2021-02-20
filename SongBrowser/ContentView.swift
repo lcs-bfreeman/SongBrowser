@@ -18,9 +18,22 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
+            
             SearchBarView(text: $searchText)
             
+            // Show a prompt when no search text is given
+            if searchText.isEmpty {
+                Spacer()
+                Text("Please enter an artist name")
+                    .font(.title2)
+                    .foregroundColor(.secondary)
+                Spacer()
+                
+            
+            } else {
+            
             Spacer()
+            }
         }
     }
 }
