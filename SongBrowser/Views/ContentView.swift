@@ -39,8 +39,24 @@ struct ContentView: View {
                 
             
             } else {
-            
-            Spacer()
+            // Search text was given results obtained
+                // show the list of results
+                // Keypath of \.trackId tells the list view what propertie to use to uiniqy identafy each song
+                List(songs, id: \.trackId) { currentSong in
+                    
+                    VStack (alignment: .leading) {
+                        /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
+                    
+                        
+                        Text(currentSong.trackName)
+                        
+                        Text(currentSong.artistName)
+                            .font(.caption)
+                        
+                    }
+                    
+                }
+                
             }
         }
     }
@@ -109,7 +125,7 @@ struct ContentView: View {
                 DispatchQueue.main.async {
 
                     // Assign the result to the "songs" property
-                    searchText = decodedSongData.results
+                    songs = decodedSongData.results
 
                 }
 
